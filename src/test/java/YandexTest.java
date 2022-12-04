@@ -124,5 +124,4 @@ public class YandexTest extends AbstractTest {
         Assertions.assertNotNull(getDriver().findElement(By.xpath(".//span[text()='Сравнить']")).isDisplayed());
     }
 
-
 }
