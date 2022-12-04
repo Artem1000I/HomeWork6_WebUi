@@ -98,4 +98,5 @@ public class WeatherPage {
     public void month() {
         driver.findElement(By.xpath(".//a[text()='На месяц']")).click();
     }
+
 }
