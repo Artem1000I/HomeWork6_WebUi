@@ -1,16 +1,31 @@
+import io.qameta.allure.Issue;
+import io.qameta.allure.Link;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.TmsLink;
+import jdk.jfr.Description;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import javax.print.attribute.standard.Severity;
 import java.time.Duration;
 
 public class YandexTest extends AbstractTest {
     @Order(1)
     @Test
+    @DisplayName("Открытие страницы")//краткое описание
+    @Description("Открываем сайт и проверяем правильность URL")//Описание для чего используется тест
+    @Link("https://yandex.ru/pogoda/?lat=43.785049&lon=131.971069&win=564")//Просто обычная ссылка. дополнительная информация или данные
+    @Issue("https://yandex.ru/pogoda/?lat=43.785049&lon=131.971069&win=564")//ссылка на систему с тест кейсами
+    @TmsLink("")//Ссылка на баг трекер например jira
+    //@Severity(SeverityLevel.MINOR) //Показывает на сколько критична та или иная часть функционала
+    //void testTrue(){Assertions.assertTrue(true);}
+
     void myActiontest() throws InterruptedException {
         new WebDriverWait(getDriver(), Duration.ofSeconds(10)).until(ExpectedConditions.urlContains("https://yandex.ru/pogoda/?lat=43.785049&lon=131.971069&win=564"));
         String URL = getDriver().getCurrentUrl(); //Проверяем урл главной страницы
@@ -123,6 +138,7 @@ public class YandexTest extends AbstractTest {
         weatherPage.month();
         Assertions.assertNotNull(getDriver().findElement(By.xpath(".//span[text()='Сравнить']")).isDisplayed());
     }
-
+    @FindBy(id = "button_1")
+    private WebElement button_1;
 
 }
