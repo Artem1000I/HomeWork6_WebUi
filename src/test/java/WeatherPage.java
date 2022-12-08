@@ -6,8 +6,8 @@ import org.openqa.selenium.WebElement;
 public class WeatherPage {
     private WebDriver driver;
 
-    private final String button_login = "Кнопка войти";
-    private final String button_mail = "Поле ввода эмейл";
+    private final String button_login_id = "button_1";
+    private final String button_mail = "Поле_ввода_эмейл";
 
     public WeatherPage(WebDriver driver) {
         this.driver = driver;
